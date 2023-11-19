@@ -7,6 +7,10 @@ server.use(express.json())
 
 server.use('/api/cars', carsRouter)
 
+server.use((err, req, res, next) => {
+    res.status(500).json({ message: 'Something went wrong', error: err.message });
+  });
+
 // DO YOUR MAGIC
 
 module.exports = server
