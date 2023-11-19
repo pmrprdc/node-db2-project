@@ -16,8 +16,13 @@ async function create(car) {
   return getById(id); // Return the newly created car record
 }
 
+function getByVin (vin) {
+  return db('cars').where({ vin }).first(); // Returns the first record that matches the VIN or null if not found
+}
+
 module.exports = {
   getAll,
   getById,
   create,
+  getByVin,
 };

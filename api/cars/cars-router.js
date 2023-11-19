@@ -13,7 +13,7 @@ const router = express.Router();
 router.get('/', async (req, res, next) => {
   try {
     const cars = await Cars.getAll();
-    res.json(cars.sort((a, b) => a.id - b.id)); // Sorting by id
+    res.json(cars); 
   } catch (err) {
     next(err);
   }
